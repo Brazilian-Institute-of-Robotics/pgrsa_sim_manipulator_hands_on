@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro" name="mobile_r6bot">
+
+  <xacro:include filename="$(find r6bot_description)/urdf/differential_robot.urdf.xacro"/>
+  <xacro:include filename="$(find r6bot_description)/urdf/r6bot_manipulator.urdf.xacro"/>
+
+  <!-- Mount the manipulator on top of the mobile base -->
+  <joint name="r6bot_mount_joint" type="fixed">
+    <parent link="chassis_link"/>
+    <child link="base_link"/>
+    <origin xyz="0 0 0.05" rpy="0 0 -1.5708"/>
+  </joint>
+
+</robot>
