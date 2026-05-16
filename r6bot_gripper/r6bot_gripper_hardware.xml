@@ -1,0 +1,13 @@
+<library path="r6bot_gripper_hardware">
+  <class
+    name="r6bot_gripper/GripperHardwareInterface"
+    type="r6bot_gripper::GripperHardwareInterface"
+    base_class_type="hardware_interface::SystemInterface">
+    <description>
+      Hardware Interface do gripper paralelo de 2 dedos para o r6bot.
+      Controla as juntas prismáticas finger_left e finger_right.
+      Em simulação usa um modelo de 1ª ordem; em hardware real,
+      substitua read()/write() pela comunicação com o atuador.
+    </description>
+  </class>
+</library>

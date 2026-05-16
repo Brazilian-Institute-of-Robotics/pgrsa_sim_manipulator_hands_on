@@ -1,0 +1,13 @@
+<library path="r6bot_gripper_controller">
+  <class
+    name="r6bot_gripper/GripperController"
+    type="r6bot_gripper::GripperController"
+    base_class_type="controller_interface::ControllerInterface">
+    <description>
+      Controlador do gripper para o r6bot.
+      Aceita dois tópicos:
+        ~/gripper_cmd   (std_msgs/Float64) — abertura normalizada [0=fechado, 1=aberto]
+        ~/gripper_grasp (std_msgs/Bool)    — fecha ao redor da bola quando true
+    </description>
+  </class>
+</library>

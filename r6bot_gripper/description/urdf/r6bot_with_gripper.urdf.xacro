@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+  Wrapper xacro: inclui o r6bot (Example 7) e adiciona o gripper no tool0.
+  Coloque este arquivo em description/urdf/ do pacote r6bot_gripper.
+-->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="r6bot_with_gripper">
+
+  <!-- ── r6bot base (6DOF) ──────────────────────────────────────────────── -->
+  <xacro:include filename="$(find ros2_control_demo_example_7)/description/urdf/r6bot.urdf.xacro"/>
+
+  <!-- ── Gripper paralelo ──────────────────────────────────────────────── -->
+  <!--
+    ATENÇÃO: o r6bot já define o link 'tool0'.
+    O gripper se conecta a ele via joint 'gripper_base_joint' (tipo fixed).
+  -->
+  <xacro:include filename="$(find r6bot_gripper)/description/urdf/r6bot_gripper.urdf.xacro"/>
+
+</robot>
