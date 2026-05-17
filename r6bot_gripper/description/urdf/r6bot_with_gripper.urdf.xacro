@@ -1,18 +1,162 @@
 <?xml version="1.0"?>
-<!--
-  Wrapper xacro: inclui o r6bot (Example 7) e adiciona o gripper no tool0.
-  Coloque este arquivo em description/urdf/ do pacote r6bot_gripper.
--->
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="r6bot_with_gripper">
+<robot xmlns:xacro="http://wiki.ros.org/xacro" name="r6bot_with_gripper">
 
-  <!-- ── r6bot base (6DOF) ──────────────────────────────────────────────── -->
-  <xacro:include filename="$(find ros2_control_demo_example_7)/description/urdf/r6bot.urdf.xacro"/>
+  <xacro:include filename="$(find r6bot_description)/urdf/fixed_r6bot.urdf.xacro"/>
 
-  <!-- ── Gripper paralelo ──────────────────────────────────────────────── -->
   <!--
-    ATENÇÃO: o r6bot já define o link 'tool0'.
-    O gripper se conecta a ele via joint 'gripper_base_joint' (tipo fixed).
+    tool0 axes (posição home):
+      Z (azul)  → aponta para BAIXO  = direção de saída do gripper
+      Y (verde) → aponta para o LADO = eixo de abertura dos dedos
+      X (red)   → aponta para frente
+
+    Gripper se estende em -Z a partir do tool0.
+    Os dedos abrem em ±Y.
+
+    Estrutura:
+      tool0
+        └── gripper_base  (caixa 60×60×80mm, centrada, desce em -Z)
+              ├── finger_left   (dedo esquerdo, abre em +Y)
+              └── finger_right  (dedo direito, abre em -Y)
   -->
-  <xacro:include filename="$(find r6bot_gripper)/description/urdf/r6bot_gripper.urdf.xacro"/>
+
+  <!-- Base: 60mm × 60mm × 80mm -->
+  <xacro:property name="bx"  value="0.06"/>
+  <xacro:property name="by"  value="0.06"/>
+  <xacro:property name="bz"  value="0.08"/>
+
+  <!-- Dedo: 14mm × 14mm × 60mm -->
+  <xacro:property name="fx"  value="0.014"/>
+  <xacro:property name="fy"  value="0.014"/>
+  <xacro:property name="fz"  value="0.06"/>
+
+  <!-- Curso de abertura de cada dedo -->
+  <xacro:property name="stroke" value="0.04"/>
+
+  <xacro:property name="base_mass"   value="0.3"/>
+  <xacro:property name="finger_mass" value="0.03"/>
+
+  <xacro:macro name="box_inertia" params="m x y z">
+    <inertial>
+      <mass value="${m}"/>
+      <inertia
+        ixx="${m*(y*y+z*z)/12}" ixy="0" ixz="0"
+        iyy="${m*(x*x+z*z)/12}" iyz="0"
+        izz="${m*(x*x+y*y)/12}"/>
+    </inertial>
+  </xacro:macro>
+
+  <!-- ── Links ──────────────────────────────────────────────────────────── -->
+
+  <!--
+    gripper_base:
+    - joint com tool0 em xyz="0 0 0"
+    - base desce em -Z → visual centrado em -bz/2
+  -->
+  <link name="gripper_base">
+    <visual>
+      <origin xyz="0 0 ${-bz/2}" rpy="0 0 0"/>
+      <geometry><box size="${bx} ${by} ${bz}"/></geometry>
+      <material name="gbase"><color rgba="0.15 0.15 0.15 1"/></material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 ${-bz/2}" rpy="0 0 0"/>
+      <geometry><box size="${bx} ${by} ${bz}"/></geometry>
+    </collision>
+    <xacro:box_inertia m="${base_mass}" x="${bx}" y="${by}" z="${bz}"/>
+  </link>
+
+  <!--
+    finger_left:
+    - joint em xyz="0  by/2  -bz"  (face +Y, ponta inferior da base)
+    - dedo continua descendo em -Z → visual centrado em -fz/2
+    - abre em +Y (prismático)
+  -->
+  <link name="finger_left">
+    <visual>
+      <origin xyz="0 0 ${-fz/2}" rpy="0 0 0"/>
+      <geometry><box size="${fx} ${fy} ${fz}"/></geometry>
+      <material name="gfinger"><color rgba="0.85 0.4 0.05 1"/></material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 ${-fz/2}" rpy="0 0 0"/>
+      <geometry><box size="${fx} ${fy} ${fz}"/></geometry>
+    </collision>
+    <xacro:box_inertia m="${finger_mass}" x="${fx}" y="${fy}" z="${fz}"/>
+  </link>
+
+  <!--
+    finger_right:
+    - joint em xyz="0  -by/2  -bz"  (face -Y, ponta inferior da base)
+    - abre em -Y (prismático)
+  -->
+  <link name="finger_right">
+    <visual>
+      <origin xyz="0 0 ${-fz/2}" rpy="0 0 0"/>
+      <geometry><box size="${fx} ${fy} ${fz}"/></geometry>
+      <material name="gfinger"><color rgba="0.85 0.4 0.05 1"/></material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 ${-fz/2}" rpy="0 0 0"/>
+      <geometry><box size="${fx} ${fy} ${fz}"/></geometry>
+    </collision>
+    <xacro:box_inertia m="${finger_mass}" x="${fx}" y="${fy}" z="${fz}"/>
+  </link>
+
+  <!-- ── Joints ─────────────────────────────────────────────────────────── -->
+
+  <joint name="gripper_base_joint" type="fixed">
+    <parent link="tool0"/>
+    <child  link="gripper_base"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="gripper_finger_left_joint" type="prismatic">
+    <parent link="gripper_base"/>
+    <child  link="finger_left"/>
+    <!-- nasce na face +Y, ponta inferior da base -->
+    <origin xyz="0 ${by/2} ${-bz}" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="0.0" upper="${stroke}" effort="20.0" velocity="0.05"/>
+    <dynamics damping="2.0" friction="0.0"/>
+  </joint>
+
+  <joint name="gripper_finger_right_joint" type="prismatic">
+    <parent link="gripper_base"/>
+    <child  link="finger_right"/>
+    <!-- nasce na face -Y, ponta inferior da base -->
+    <origin xyz="0 ${-by/2} ${-bz}" rpy="0 0 0"/>
+    <axis xyz="0 -1 0"/>
+    <limit lower="0.0" upper="${stroke}" effort="20.0" velocity="0.05"/>
+    <dynamics damping="2.0" friction="0.0"/>
+  </joint>
+
+  <!-- ── Gazebo ─────────────────────────────────────────────────────────── -->
+  <gazebo reference="gripper_finger_left_joint">
+    <implicitSpringDamper>true</implicitSpringDamper>
+    <springStiffness>0</springStiffness>
+    <springReference>0</springReference>
+  </gazebo>
+
+  <gazebo reference="gripper_finger_right_joint">
+    <implicitSpringDamper>true</implicitSpringDamper>
+    <springStiffness>0</springStiffness>
+    <springReference>0</springReference>
+  </gazebo>
+
+  <gazebo reference="gripper_base">
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+
+  <gazebo reference="finger_left">
+    <material>Gazebo/Orange</material>
+    <mu1>1.5</mu1>
+    <mu2>1.5</mu2>
+  </gazebo>
+
+  <gazebo reference="finger_right">
+    <material>Gazebo/Orange</material>
+    <mu1>1.5</mu1>
+    <mu2>1.5</mu2>
+  </gazebo>
 
 </robot>

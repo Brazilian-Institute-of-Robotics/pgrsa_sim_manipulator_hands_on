@@ -8,6 +8,7 @@
         <plugin>gz_ros2_control/GazeboSimSystem</plugin>
       </hardware>
 
+      <!-- ── Juntas do braço ──────────────────────────────────────────────── -->
       <joint name="joint_1">
         <command_interface name="position">
           <param name="min">-6.28</param>
@@ -59,6 +60,29 @@
           <param name="max">6.28</param>
         </command_interface>
         <state_interface name="position"/>
+        <state_interface name="velocity"/>
+      </joint>
+
+      <!-- ── Juntas do gripper (mesmo bloco = mesmo GazeboSimSystem) ───────── -->
+      <joint name="gripper_finger_left_joint">
+        <command_interface name="position">
+          <param name="min">0.0</param>
+          <param name="max">0.05</param>
+        </command_interface>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+      </joint>
+
+      <joint name="gripper_finger_right_joint">
+        <command_interface name="position">
+          <param name="min">0.0</param>
+          <param name="max">0.05</param>
+        </command_interface>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
         <state_interface name="velocity"/>
       </joint>
 

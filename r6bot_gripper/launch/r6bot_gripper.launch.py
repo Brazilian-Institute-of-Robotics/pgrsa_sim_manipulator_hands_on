@@ -1,150 +1,154 @@
-"""
-Launch: r6bot + gripper paralelo + bola no Gazebo
-  ros2 launch r6bot_gripper r6bot_gripper.launch.py
-
-Pré-requisitos:
-  - ros2_control_demo_example_7 instalado (fornece o r6bot)
-  - gz_ros2_control instalado
-  - bola.sdf na pasta atual ou no GZ_SIM_RESOURCE_PATH
-"""
-
 import os
-from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
-from launch.actions import (
-    DeclareLaunchArgument,
-    IncludeLaunchDescription,
-    TimerAction,
-    ExecuteProcess,
-)
-from launch.launch_description_sources import PythonLaunchDescriptionSource
-from launch.substitutions import LaunchConfiguration, Command, PathJoinSubstitution
+from launch.actions import IncludeLaunchDescription, TimerAction
+from launch.substitutions import Command
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
+from launch_ros.parameter_descriptions import ParameterValue
 
 
 def generate_launch_description():
 
-    # ── Pacotes ────────────────────────────────────────────────────────────────
-    pkg_gripper  = get_package_share_directory("r6bot_gripper")
-    pkg_r6bot    = get_package_share_directory("r6bot_description")
+    pkg_gripper    = FindPackageShare("r6bot_gripper").find("r6bot_gripper")
+    pkg_control    = FindPackageShare("r6bot_control").find("r6bot_control")
+    pkg_gazebo     = FindPackageShare("r6bot_gazebo").find("r6bot_gazebo")
+    ros_gz_sim_pkg = FindPackageShare("ros_gz_sim").find("ros_gz_sim")
 
-    # ── Argumentos ────────────────────────────────────────────────────────────
-    use_sim_time = LaunchConfiguration("use_sim_time", default="true")
+    xacro_wrapper = os.path.join(pkg_gripper, "urdf", "r6bot_with_gripper.urdf.xacro")
+    robot_description = {
+        "robot_description": ParameterValue(
+            Command(["xacro ", xacro_wrapper]),
+            value_type=str
+        )
+    }
 
-    declare_use_sim_time = DeclareLaunchArgument(
-        "use_sim_time",
-        default_value="true",
-        description="Usa o tempo de simulação do Gazebo",
+    # ── 1. Gazebo ─────────────────────────────────────────────────────────────
+    gazebo = IncludeLaunchDescription(
+        os.path.join(ros_gz_sim_pkg, "launch", "gz_sim.launch.py"),
+        launch_arguments=[("gz_args", " -r -v 3 empty.sdf")],
     )
 
-    # ── URDF combinado: r6bot + gripper ───────────────────────────────────────
-    #  O xacro do gripper assume que 'tool0' já existe (definido pelo r6bot).
-    #  Fazemos um xacro wrapper que inclui os dois.
-    robot_description_cmd = Command([
-        "xacro ",
-        os.path.join(pkg_gripper, "description", "urdf", "r6bot_with_gripper.urdf.xacro"),
-    ])
-
-    robot_description = {"robot_description": robot_description_cmd}
-
-    # ── Robot State Publisher ──────────────────────────────────────────────────
+    # ── 2. Robot State Publisher ───────────────────────────────────────────────
     robot_state_publisher = Node(
         package="robot_state_publisher",
         executable="robot_state_publisher",
-        name="robot_state_publisher",
-        output="screen",
-        parameters=[robot_description, {"use_sim_time": use_sim_time}],
+        output="both",
+        parameters=[robot_description, {"use_sim_time": True}],
     )
 
-    # ── Gazebo (Ignition / GZ Sim) ────────────────────────────────────────────
-    gazebo = ExecuteProcess(
-        cmd=["gz", "sim", "-r", "empty.sdf"],
-        output="screen",
-    )
-
-    # Spawn do robô no Gazebo
-    spawn_robot = Node(
-        package="ros_gz_sim",
-        executable="create",
+    # ── 3. Bridge ─────────────────────────────────────────────────────────────
+    gazebo_bridge = Node(
+        package="ros_gz_bridge",
+        executable="parameter_bridge",
         arguments=[
-            "-name", "r6bot_with_gripper",
-            "-topic", "robot_description",
-            "-x", "0", "-y", "0", "-z", "0.5",
+            "/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock",
+            "/camera/image@sensor_msgs/msg/Image@gz.msgs.Image",
+            "/camera/camera_info@sensor_msgs/msg/CameraInfo@gz.msgs.CameraInfo",
         ],
         output="screen",
     )
 
-    # Spawn da bola (bola.sdf deve estar acessível)
-    spawn_ball = Node(
-        package="ros_gz_sim",
-        executable="create",
-        arguments=[
-            "-file", os.path.join(pkg_gripper, "description", "bola.sdf"),
-            "-name", "bola",
-            "-x", "0.5",
-            "-y", "0.0",
-            "-z", "0.80",   # posição acima da mesa
-        ],
-        output="screen",
-    )
-
-    # ── ros2_control node ─────────────────────────────────────────────────────
-    ros2_control_node = Node(
-        package="controller_manager",
-        executable="ros2_control_node",
-        parameters=[
-            robot_description,
-            os.path.join(pkg_gripper, "config", "gripper_controllers.yaml"),
-            {"use_sim_time": use_sim_time},
-        ],
-        output="screen",
-    )
-
-    # ── Spawners dos controladores (com delay para o CM inicializar) ──────────
-    joint_state_broadcaster_spawner = TimerAction(
-        period=3.0,
+    # ── 4. Spawn robô (t=8s) ──────────────────────────────────────────────────
+    gz_spawn_entity = TimerAction(
+        period=8.0,
         actions=[
             Node(
-                package="controller_manager",
-                executable="spawner",
-                arguments=["joint_state_broadcaster", "--controller-manager", "/controller_manager"],
+                package="ros_gz_sim",
+                executable="create",
+                output="screen",
+                arguments=[
+                    "-topic", "/robot_description",
+                    "-name",  "r6bot_with_gripper",
+                    "-allow_renaming", "true",
+                ],
+            )
+        ],
+    )
+
+    # ── 5. Spawn bola ─────────────────────────────────────────────────────────
+    bola = TimerAction(
+        period=8.0,
+        actions=[
+            Node(
+                package="ros_gz_sim",
+                executable="create",
+                arguments=[
+                    "-name", "bola",
+                    "-file", os.path.join(pkg_gazebo, "models", "bola", "bola.sdf"),
+                    "-x", "1.0", "-y", "2.0", "-z", "0.5", "-R", "1.5708",
+                ],
                 output="screen",
             )
         ],
     )
 
-    gripper_controller_spawner = TimerAction(
-        period=4.0,
+    # ── 6. Controladores do braço + gripper (t=15s) ───────────────────────────
+    r6bot_control = TimerAction(
+        period=15.0,
         actions=[
-            Node(
-                package="controller_manager",
-                executable="spawner",
-                arguments=["gripper_controller", "--controller-manager", "/controller_manager"],
-                output="screen",
+            IncludeLaunchDescription(
+                os.path.join(pkg_control, "launch", "r6bot_control.launch.py")
             )
         ],
     )
 
-    # ── RViz (opcional) ───────────────────────────────────────────────────────
-    rviz_config = os.path.join(pkg_gripper, "config", "gripper.rviz")
+    # ── 7. RViz ───────────────────────────────────────────────────────────────
+    rviz_config = os.path.join(
+        FindPackageShare("r6bot_description").find("r6bot_description"),
+        "rviz", "r6bot.rviz"
+    )
     rviz = Node(
         package="rviz2",
         executable="rviz2",
         name="rviz2",
-        arguments=["-d", rviz_config] if os.path.exists(rviz_config) else [],
-        parameters=[{"use_sim_time": use_sim_time}],
         output="screen",
+        arguments=["-d", rviz_config],
+        parameters=[{"use_sim_time": True}],
+    )
+
+    # ── 8. rqt_joint_trajectory_controller — controla braço E gripper ─────────
+    # Após subir: selecione o controller no dropdown e use os sliders.
+    # Para o braço: selecione joint_trajectory_controller
+    # Para o gripper: selecione gripper_action_controller
+    rqt_joint_traj = TimerAction(
+        period=17.0,   # aguarda controllers estarem ativos
+        actions=[
+            Node(
+                package="rqt_joint_trajectory_controller",
+                executable="rqt_joint_trajectory_controller",
+                name="rqt_joint_trajectory_controller",
+                output="screen",
+                parameters=[{"use_sim_time": True}],
+            )
+        ],
+    )
+
+    # ── 9. rqt_gui com plugin Publisher — para tópicos do gripper ─────────────
+    # Permite publicar em /gripper_action_controller/commands manualmente
+    rqt = TimerAction(
+        period=17.0,
+        actions=[
+            Node(
+                package="rqt_gui",
+                executable="rqt_gui",
+                name="rqt_gui",
+                output="screen",
+                arguments=["--perspective-file",
+                           os.path.join(pkg_gripper, "config", "gripper.perspective")]
+                if os.path.exists(os.path.join(pkg_gripper, "config", "gripper.perspective"))
+                else [],
+            )
+        ],
     )
 
     return LaunchDescription([
-        declare_use_sim_time,
+        gazebo,                  # t=0s
         robot_state_publisher,
-        gazebo,
-        spawn_robot,
-        spawn_ball,
-        ros2_control_node,
-        joint_state_broadcaster_spawner,
-        gripper_controller_spawner,
+        gazebo_bridge,
         rviz,
+        gz_spawn_entity,         # t=8s
+        bola,
+        r6bot_control,           # t=15s
+        rqt_joint_traj,          # t=17s — interface de juntas
+        rqt,                     # t=17s — rqt geral
     ])

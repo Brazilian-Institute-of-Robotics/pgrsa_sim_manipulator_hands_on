@@ -1,31 +1,18 @@
 controller_manager:
   ros__parameters:
-    update_rate: 50  # Hz — igual ao loop_rate do hardware
+    update_rate: 50  # deve ser igual ao do r6bot_controllers.yaml
 
-    # Controlador do gripper
     gripper_controller:
       type: r6bot_gripper/GripperController
 
-    # Joint State Broadcaster (para monitorar posição dos dedos)
-    joint_state_broadcaster:
-      type: joint_state_broadcaster/JointStateBroadcaster
-
-# ── Parâmetros do GripperController ──────────────────────────────────────────
 gripper_controller:
   ros__parameters:
-    # Raio da bola.sdf — usado para calcular a posição de grasp
-    ball_radius: 0.12     # metros
-
-    # Limites das juntas (devem coincidir com o URDF)
-    min_position: 0.01    # metros (fechado)
-    max_position: 0.14    # metros (aberto)
-
-    # Nomes das juntas (ordem importa — deve bater com o hardware interface)
+    ball_radius:  0.12
+    min_position: 0.01
+    max_position: 0.14
     joints:
       - gripper_finger_left_joint
       - gripper_finger_right_joint
-
-    # Interfaces exportadas pelo hardware
     command_interfaces:
       - position
     state_interfaces:
