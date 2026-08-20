@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>kuka_inverse_kinematics</name>
+  <version>0.1.0</version>
+  <description>
+    Cinemática inversa do KUKA KR70 R2100.
+    Implementa: solução analítica geométrica (posição) + iterativa (orientação),
+    método de Jacobiano pseudo-inverso iterativo, e método de Newton-Raphson.
+    Gera gráficos de evolução das juntas e erro de convergência.
+  </description>
+  <maintainer email="matheuz__@hotmail.com">user</maintainer>
+  <license>Apache-2.0</license>
+
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>kuka_forward_kinematics</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>trajectory_msgs</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>control_msgs</exec_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>
