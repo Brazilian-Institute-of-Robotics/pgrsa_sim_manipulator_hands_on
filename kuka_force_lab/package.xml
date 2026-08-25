@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>kuka_control_strategies</name>
-  <version>0.1.0</version>
-  <description>
-  </description>
+  <name>kuka_force_lab</name>
+  <version>1.0.0</version>
+  <description> </description>
   <maintainer email="matheuz__@hotmail.com">user</maintainer>
   <license>Apache-2.0</license>
 
@@ -12,9 +12,13 @@
   <exec_depend>sensor_msgs</exec_depend>
   <exec_depend>geometry_msgs</exec_depend>
   <exec_depend>trajectory_msgs</exec_depend>
-  <exec_depend>visualization_msgs</exec_depend>
-  <exec_depend>tf2_ros</exec_depend>
-  <exec_depend>tf2_geometry_msgs</exec_depend>
+  <exec_depend>control_msgs</exec_depend>
+  <exec_depend>ros_gz_sim</exec_depend>
+  <exec_depend>kuka_control_lab</exec_depend>
+  <exec_depend>kuka_forward_kinematics</exec_depend>
+  <exec_depend>python3-numpy</exec_depend>
+  <exec_depend>python3-matplotlib</exec_depend>
+  <exec_depend>python3-yaml</exec_depend>
 
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>

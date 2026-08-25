@@ -1,0 +1,15 @@
+contact_panel:
+  x: 1.50
+  y: 0.0
+  z: 0.0
+  yaw: 0.0
+
+surface:
+  z_surface: 0.95          
+  approach_height: 0.10
+  overshoot: 0.02
+
+stiffness_presets:
+  macio:          1.0e4
+  intermediario:  1.0e6
+  rigido:         1.0e8

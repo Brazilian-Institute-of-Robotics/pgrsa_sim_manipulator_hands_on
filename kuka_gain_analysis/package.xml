@@ -3,9 +3,6 @@
   <name>kuka_gain_analysis</name>
   <version>0.1.0</version>
   <description>
-    Obj. 2 — Estimar a influência das variações nos ganhos e no tipo de controle
-    sobre a estabilidade e o desempenho do sistema. Varrimento de ganhos Kp/Kd,
-    análise de estabilidade e geração de relatórios.
   </description>
   <maintainer email="matheuz__@hotmail.com">user</maintainer>
   <license>Apache-2.0</license>
