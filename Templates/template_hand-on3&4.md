@@ -292,15 +292,7 @@ Passo a passo:
 
 ---
 
-## *Passo 22 — Montagem do experimento de contato*
-
-**Confirme o entendimento da cena (postura pick, superfície em Z = 0,96 m e descida de 2 cm):**
-`[ ... ]`
-
-
----
-
-## Passo 23 — Controle de posição pura contra a superfície
+## Passo 22 — Controle de posição pura contra a superfície
 
 **Registre a força de regime observada:**
 `[ ... ]`
@@ -314,7 +306,7 @@ Passo a passo:
 
 ---
 
-## Passo 24 — Controle de posição em diferentes materiais
+## Passo 23 — Controle de posição em diferentes materiais
 
 **Registre as forças de regime observadas:**
 
@@ -336,7 +328,7 @@ Passo a passo:
 
 ---
 
-## Passo 25 — Controle híbrido força/posição
+## Passo 24 — Controle híbrido força/posição
 
 **Força de regime observada:**
 `[ ... ]`
@@ -352,7 +344,7 @@ Passo a passo:
 
 ---
 
-## Passo 26 — Comparação das quatro leis de interação
+## Passo 25 — Comparação das quatro leis de interação
 
 **Registre a tabela gerada (pico, regime, erro, ondulação, penetração e torque de pico):**
 `[ ... ]`
@@ -365,7 +357,7 @@ Passo a passo:
 
 ---
 
-## Passo 27 — Comparação nos três materiais
+## Passo 26 — Comparação nos três materiais
 
 **Registre as tabelas dos três materiais (espuma, madeira e aço):**
 `[ ... ]`
