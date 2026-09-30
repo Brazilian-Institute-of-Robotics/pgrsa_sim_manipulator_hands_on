@@ -1,6 +1,6 @@
-# Registro de Atividade — Manipulação, Estimativa e Controle (Passos 3 a 20)
+# Registro de Atividade: Roteiro Hand-on 1&2
 
-**Estudante(s):** `[ ... ]`
+**Nome dos estudantes:** `[ ... ]`
 
 > Preencha cada seção com os dados/valores solicitados, suas observações e as figuras geradas. Substitua os campos `[ ... ]` pelas suas respostas e insira as imagens conforme o tutorial abaixo.
 
@@ -11,32 +11,26 @@
 Para inserir uma imagem neste arquivo, use a seguinte sintaxe:
 
 ```markdown
-![Texto alternativo](caminho/da/imagem.png)
+!caminho/da/imagem.png
 ```
 
 Passo a passo:
 
-1. Copie o arquivo de imagem gerado (por exemplo, em `~/kuka_fk_plots/` ou `~/kuka_kf_plots/`) para uma pasta do seu repositório, como `imagens/`, para que ela fique versionada junto com o projeto.
-2. No local desejado do template, escreva o caminho relativo até a imagem. Exemplo:
+1. Copie o arquivo de imagem gerado (por exemplo, em `~/kuka_control_plots/`) para uma pasta do seu repositório, como `imagens/`, para que ela fique versionada junto com o projeto.
+2. Escreva o caminho relativo até a imagem, conforme o exemplo a seguir:
+3. Indique, entre parênteses ( ), o caminho até o local correto do arquivo em relação a este .md.
+4. Salve o arquivo e visualize no GitHub (ou em um editor com preview de Markdown, como VS Code) para confirmar que a imagem aparece corretamente.
+5
+5. Execute os comandos `git add`, `git commit` e `git push` para incluir as imagens no controle de versão e enviá-las ao repositório remoto.
 
-   ```markdown
-   ![Comparação da cinemática direta - pick](imagens/fk_comparison_xyz_pick.png)
-   ```
-
-3. O texto entre colchetes `[ ]` é o texto alternativo (descrição da imagem) — use algo breve e descritivo.
-4. O caminho entre parênteses `( )` deve apontar para o local correto do arquivo em relação a este `.md`.
-5. Salve o arquivo e visualize no GitHub (ou em um editor com preview de Markdown, como VS Code) para confirmar que a imagem aparece corretamente.
-6. Não esqueça de rodar `git add`, `git commit` e `git push` para que as imagens também sejam enviadas ao repositório remoto.
-
----
 
 ## Passo 3 — Inicialização do Gazebo com o robô KUKA KR70 R2100
 
 **Confirme a inicialização do robô e do gripper Robotiq 2F-85 na simulação:**
 `[ ... ]`
 
-**Figura (captura de tela da simulação):**
-`[ inserir imagem ]`
+**Inserir a imagem  da captura da tela da simulção com o robô (`Captura da tela da simulação`):**
+`[ inserir imagens ]`
 
 ---
 
@@ -45,7 +39,7 @@ Passo a passo:
 **Registre a pose do TCP obtida para a configuração `custom_q = [0.0, -1.0, 1.2, 0.0, 0.8, 0.0]`:**
 `[ ... ]`
 
-**Analise o resultado obtido:**
+**Explique o resultado obtido:**
 `[ ... ]`
 
 ---
@@ -55,7 +49,7 @@ Passo a passo:
 **Confirme os elementos carregados na simulação (mesa, objetos manipuláveis e caixa de destino):**
 `[ ... ]`
 
-**Figuras:**
+**Inserir a imagem  da captura da tela da simulção com o robô (`Captura da tela da simulação com a presença dos objetos`):**
 `[ inserir imagens ]`
 
 ---
@@ -88,7 +82,7 @@ Passo a passo:
 **`teal_block`:**
 `[ ... ]`
 
-**Observações gerais sobre o comportamento do manipulador durante as tarefas:**
+**Insira as observações gerais sobre o comportamento do manipulador durante as tarefas:**
 `[ ... ]`
 
 ---
@@ -98,18 +92,18 @@ Passo a passo:
 **Registre as configurações de referência analisadas (`home`, `pick`, `place`, `stretch`, `left`, `custom`):**
 `[ ... ]`
 
-**Analise as figuras geradas:**
+**Explique as figuras geradas:**
 `[ ... ]`
 
-**Figuras (4 gráficos em `~/kuka_fk_plots/`: `fk_trajectory_3d.png`, `fk_xyz_euler.png`, `fk_workspace_slice.png`, `fk_robot_2d.png`):**
+**Insira as imagens as imagens dos 4 gráficos em `~/kuka_fk_plots/`: `fk_trajectory_3d.png`, `fk_xyz_euler.png`, `fk_workspace_slice.png`, `fk_robot_2d.png`:**
 `[ inserir imagens ]`
 
 ---
 
 ## Passo 8 — Reinício da simulação
 
-**Confirme o reinício do Gazebo (repetição dos Passos 3 e 5):**
-`[ ... ]`
+**Inserir a imagem  da captura da tela da simulção com o robô com presença dos objetos (`Captura da tela da simulação com a presença dos objetos`):**
+`[ inserir imagens ]`
 
 ---
 
@@ -144,7 +138,7 @@ Passo a passo:
 **Compare os valores do erro de rastreamento entre as 8 tarefas monitoradas:**
 `[ ... ]`
 
-**Figuras (4 gráficos por tarefa — `fk_comparison_xyz_*.png`, `fk_comparison_error_*.png`, `fk_comparison_3d_*.png`, `fk_joint_angles_*.png`):**
+**Insira as 4 imagens de gráficos por tarefa :( `fk_comparison_xyz_*.png`, `fk_comparison_error_*.png`, `fk_comparison_3d_*.png`, `fk_joint_angles_*.png`):**
 `[ inserir imagens ]`
 
 ---
@@ -154,10 +148,10 @@ Passo a passo:
 **Registre os resultados obtidos com o filtro de Kalman sob ruído gaussiano reprodutível:**
 `[ ... ]`
 
-**Analise se o filtro conseguiu estimar corretamente os estados do manipulador:**
+**Explique se o filtro conseguiu estimar corretamente os estados do manipulador:**
 `[ ... ]`
 
-**Figuras (8 gráficos em `~/kuka_kf_plots/`):**
+**Insira as 8 imagem de gráficos presente em `~/kuka_kf_plots/`:**
 `[ inserir imagens ]`
 
 ---
@@ -167,10 +161,10 @@ Passo a passo:
 **Registre os resultados obtidos (`sigma_pos:=0.02`, `outlier_prob:=0.02`):**
 `[ ... ]`
 
-**Analise o impacto do ruído e dos outliers sobre a estimativa de movimento:**
+**Explique o impacto do ruído e dos outliers sobre a estimativa de movimento:**
 `[ ... ]`
 
-**Figuras:**
+**Insira as 8 imagem de gráficos presente em `~/kuka_kf_plots/`:**
 `[ inserir imagens ]`
 
 ---
@@ -183,7 +177,7 @@ Passo a passo:
 **Compare os resultados com os obtidos nos Passos 10 e 11:**
 `[ ... ]`
 
-**Figuras:**
+**Insira as 8 imagem de gráficos presente em `~/kuka_kf_plots/`**
 `[ inserir imagens ]`
 
 ---
@@ -207,8 +201,7 @@ Passo a passo:
 **Compare os gráficos gerados com os dos Passos 10, 11 e 12:**
 `[ ... ]`
 
-**Figuras (8 gráficos em `~/kuka_kf_plots/`):**
-`[ inserir imagens ]`
+**Insira as 8 imagem de gráficos presente em `~/kuka_kf_plots/`**
 
 ---
 
@@ -234,15 +227,15 @@ Passo a passo:
 **Junta 6:**
 `[ ... ]`
 
-**Analise como o torque varia entre as juntas ao longo da tarefa:**
+**Explique como o torque varia entre as juntas ao longo da tarefa:**
 `[ ... ]`
 
 ---
 
 ## Passo 17 — Reinício da simulação
 
-**Confirme o reinício do Gazebo (repetição dos Passos 3 e 5):**
-`[ ... ]`
+**Inserir a imagem  da captura da tela da simulção com o robô com presença dos objetos (`Captura da tela da simulação com a presença dos objetos`):**
+`[ inserir imagens ]`
 
 ---
 

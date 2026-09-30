@@ -1,6 +1,6 @@
-# Registro de Atividade — Dinâmica e Controle do Manipulador (Passos 3 a 27)
+# Registro de Atividade: Roteiro Hand-on 3&4
 
-**Estudante(s):** `[ ... ]`
+**Nome dos estudantes:** `[ ... ]`
 
 > Preencha cada seção com os dados/valores solicitados, suas observações e as figuras geradas. Substitua os campos `[ ... ]` pelas suas respostas e insira as imagens conforme o tutorial abaixo.
 
@@ -17,13 +17,11 @@ Para inserir uma imagem neste arquivo, use a seguinte sintaxe:
 Passo a passo:
 
 1. Copie o arquivo de imagem gerado (por exemplo, em `~/kuka_control_plots/`) para uma pasta do seu repositório, como `imagens/`, para que ela fique versionada junto com o projeto.
-2. No local desejado do template, escreva o caminho relativo até a imagem. Exemplo:
-
-   ```markdown
-   ![Erro de torque PD sem compensação de gravidade](imagens/entre colchetes `[ ]` é o texto alternativo (descrição da imagem) — use algo breve e descritivo.
-4. O caminho entre parênteses `( )` deve apontar para o local correto do arquivo em relação a este `.md`.
-5. Salve o arquivo e visualize no GitHub (ou em um editor com preview de Markdown, como VS Code) para confirmar que a imagem aparece corretamente.
-6. Não esqueça de rodar `git add`, `git commit` e `git push` para que as imagens também sejam enviadas ao repositório remoto.
+2. Escreva o caminho relativo até a imagem, conforme o exemplo a seguir:
+3. Indique, entre parênteses ( ), o caminho até o local correto do arquivo em relação a este .md.
+4. Salve o arquivo e visualize no GitHub (ou em um editor com preview de Markdown, como VS Code) para confirmar que a imagem aparece corretamente.
+5
+5. Execute os comandos `git add`, `git commit` e `git push` para incluir as imagens no controle de versão e enviá-las ao repositório remoto.
 
 ---
 
@@ -32,10 +30,10 @@ Passo a passo:
 **Registre o erro de regime observado no TCP:**
 `[ ... ]`
 
-**Analise o comportamento do controlador durante a convergência:**
+**Explique o comportamento do controlador durante a convergência:**
 `[ ... ]`
 
-**Figuras (4 gráficos em `~/kuka_control_plots/`):**
+**Insira  as imagens dos 4 gráficos presentes em  `~/kuka_control_plots/`:**
 `[ inserir imagens ]`
 
 ---
@@ -45,10 +43,10 @@ Passo a passo:
 **Compare os resultados entre os arquivos `ctrl_error_torque_pd_sem_g.png` e `ctrl_error_torque_pd_com_g.png`:**
 `[ ... ]`
 
-**Analise o impacto da compensação de gravidade no erro e no torque aplicado:**
+**Explique o impacto da compensação de gravidade no erro e no torque aplicado:**
 `[ ... ]`
 
-**Figuras:**
+**Insira  as imagens dos 4 gráficos presentes em  `~/kuka_control_plots/`:**
 `[ inserir imagens ]`
 
 
@@ -73,7 +71,7 @@ Passo a passo:
 **Compare o desempenho entre as duas posturas:**
 `[ ... ]`
 
-**Figuras:**
+**Insira  as imagens dos 4? gráficos presentes em  `~/kuka_control_plots/`?:**
 `[ inserir imagens ]`
 
 ---
@@ -83,10 +81,10 @@ Passo a passo:
 **Registre os resultados obtidos:**
 `[ ... ]`
 
-**Analise o desempenho do controlador utilizando o modelo dinâmico completo:**
+**Explique o desempenho do controlador utilizando o modelo dinâmico completo:**
 `[ ... ]`
 
-**Figuras:**
+**Insira  as imagens dos 4? gráficos presentes em  `~/kuka_control_plots/`?:**
 `[ inserir imagens ]`
 
 
@@ -94,21 +92,22 @@ Passo a passo:
 
 ## Passo 7 — Torque computado em posturas diferentes
 
+**Registre as métricas obtidas:**
+
 **RMS do erro do TCP (pick):**
 `[ ... ]`
 
 **RMS do erro do TCP (stretch):**
 `[ ... ]`
 
-**Diferença observada entre as duas execuções:**
+**Compara a diferença observada entre as duas execuções:**
 `[ ... ]`
 
 **Compare com as diferenças observadas no Passo 5:**
 `[ ... ]`
 
-**Figuras:**
+**Insira  as imagens dos 4? gráficos presentes em  `~/kuka_control_plots/`?:**
 `[ inserir imagens ]`
-
 
 ---
 
@@ -117,13 +116,11 @@ Passo a passo:
 **Registre duas métricas contrastantes observadas nos logs:**
 `[ ... ]`
 
-**Analise os resultados obtidos:**
+**Explique os resultados obtidos:**
 `[ ... ]`
 
-**Figuras:**
+**Insira  as imagens dos 4? gráficos presentes em  `~/kuka_control_plots/`?:**
 `[ inserir imagens ]`
-
-
 
 ---
 
@@ -132,28 +129,29 @@ Passo a passo:
 **Compare os gráficos `ctrl_joints_os_nominal.png` e `ctrl_joints_os_sem_postura.png`:**
 `[ ... ]`
 
-**Analise as diferenças observadas nas configurações articulares:**
+**Compare as diferenças observadas nas configurações articulares:**
 `[ ... ]`
 
-**Figuras:**
-`[ inserir imagens ]`
+
+**Insira  as imagens dos 4? gráficos presentes em  `~/kuka_control_plots/`?:**
+`[ inserir imagens ]``
 
 
 ---
 
 ## Passo 10 — Comparação das três estratégias em condição de igualdade
 
-**Registre a tabela gerada:**
+**Compartilhe a tabela gerada:**
 `[ ... ]`
 
-**Analise os resultados apresentados na tabela:**
+**Compare os resultados apresentados na tabela:**
 `[ ... ]`
 
 ---
 
 ## Passo 11 — Comparação com payload não modelada
 
-**Registre a tabela gerada:**
+**Compartilhe a tabela gerada:**
 `[ ... ]`
 
 **Compare os resultados com os obtidos no Passo 10:**
@@ -164,7 +162,7 @@ Passo a passo:
 
 ## Passo 12 — Comparação com atrito de Coulomb não modelado
 
-**Registre a tabela gerada:**
+**Compartilhe a tabela gerada:**
 `[ ... ]`
 
 **Compare a coluna "regime TCP" com os resultados do Passo 10:**
@@ -179,20 +177,20 @@ Passo a passo:
 **Confirme a inicialização do robô e dos controladores:**
 `[ ... ]`
 
-**Figuras (`Captura da tela da simulação`):**
+**Inserir a imagem  da captura da tela da simulção com o robô (`Captura da tela da simulação`):**
 `[ inserir imagens ]`
 
 ---
 
 ## Passo 14 — Desempenho do controlador no Gazebo
 
-**RMS do erro do TCP (jtc_pick):**
+**Registre o RMS do erro do TCP (jtc_pick):**
 `[ ... ]`
 
 **Compare o resultado com os valores obtidos no Passo 10:**
 `[ ... ]`
 
-**Figuras (2 gráficos e JSON gerado):**
+**Inserir a imagem dos gráficos, e o JSON gerado:**
 `[ inserir imagens/arquivo ]`
 
 
@@ -222,10 +220,10 @@ Passo a passo:
 
 ## Passo 16 — Redução da densidade de waypoints
 
-**Analise o efeito da redução de waypoints sobre a trajetória:**
+**Explique o efeito da redução de waypoints sobre a trajetória:**
 `[ ... ]`
 
-**Comente sobre a presença de "cantos" ou degradação da referência:**
+**Comente sobre a presença de erros ou degradação da referência:**
 `[ ... ]`
 
 **Figuras:**
@@ -235,12 +233,12 @@ Passo a passo:
 
 ## Passo 17 — Confronto entre números do Gazebo e da simulação
 
-**Registre a tabela comparativa:**
+**Compartilhe a tabela comparativa:**
 `[ ... ]`
 
 **(PD local simulado, torque computado simulado, espaço operacional simulado e JTC do Gazebo)**
 
-**Conclusão sobre qual estratégia mais se aproxima do controlador real:**
+**Registre a conclusão sobre qual estratégia mais se aproxima do controlador real:**
 `[ ... ]`
 
 ---
@@ -250,7 +248,7 @@ Passo a passo:
 **Compare os gráficos `ctrl_error_torque_ruido_*.png`:**
 `[ ... ]`
 
-**Analise o impacto do ruído sobre o termo derivativo:**
+**Explique o impacto do ruído sobre o termo derivativo:**
 `[ ... ]`
 
 **Figuras:**
@@ -264,12 +262,14 @@ Passo a passo:
 **Registre os alertas observados (divergência, oscilação e chatter):**
 `[ ... ]`
 
-**Observações:**
+**Anote as observações sobre os alertas:**
 `[ ... ]`
 
 ---
 
 ## Passo 20 — Linha de base do monitor com o robô parado
+
+**Registre as métricas:**
 
 **Pico de erro observado:**
 `[ ... ]`
@@ -280,7 +280,7 @@ Passo a passo:
 **Número de inversões:**
 `[ ... ]`
 
-**Analise os valores registrados:**
+**Explique os valores registrados:**
 `[ ... ]`
 
 ---
@@ -297,7 +297,7 @@ Passo a passo:
 **Registre a força de regime observada:**
 `[ ... ]`
 
-**Analise o painel central de `force_run_pos_madeira.png`:**
+**Explique os dados presente no painel central de `force_run_pos_madeira.png`:**
 `[ ... ]`
 
 **Figura:**
@@ -330,13 +330,15 @@ Passo a passo:
 
 ## Passo 24 — Controle híbrido força/posição
 
+**Registre as métricas:**
+
 **Força de regime observada:**
 `[ ... ]`
 
 **Ondulação observada:**
 `[ ... ]`
 
-**Analise o desempenho do controlador híbrido:**
+**Explique o desempenho do controlador híbrido:**
 `[ ... ]`
 
 **Figuras:**
@@ -362,7 +364,7 @@ Passo a passo:
 **Registre as tabelas dos três materiais (espuma, madeira e aço):**
 `[ ... ]`
 
-**Analise quais métricas foram mais sensíveis à mudança de material:**
+**Explique quais métricas foram mais sensíveis à mudança de material:**
 `[ ... ]`
 
 **Compare os resultados obtidos entre os materiais:**
