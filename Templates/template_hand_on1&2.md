@@ -29,7 +29,7 @@ Passo a passo:
 **Confirme a inicialização do robô e do gripper Robotiq 2F-85 na simulação:**
 `[ ... ]`
 
-**Inserir a imagem  da captura da tela da simulção com o robô (`Captura da tela da simulação`):**
+**Inserir uma captura de tela da simulação, na qual o robô esteja visível (`Captura da tela da simulação`):**
 `[ inserir imagens ]`
 
 ---
@@ -49,7 +49,7 @@ Passo a passo:
 **Confirme os elementos carregados na simulação (mesa, objetos manipuláveis e caixa de destino):**
 `[ ... ]`
 
-**Inserir a imagem  da captura da tela da simulção com o robô (`Captura da tela da simulação com a presença dos objetos`):**
+**Inserir a captura de tela da simulação, mostrando o robô e os objetos presentes no ambiente (`Captura da tela da simulação com a presença dos objetos`):**
 `[ inserir imagens ]`
 
 ---
@@ -102,7 +102,7 @@ Passo a passo:
 
 ## Passo 8 — Reinício da simulação
 
-**Inserir a imagem  da captura da tela da simulção com o robô com presença dos objetos (`Captura da tela da simulação com a presença dos objetos`):**
+**Inserir a captura de tela da simulação, mostrando o robô e os objetos presentes no ambiente (`Captura da tela da simulação com a presença dos objetos`):**
 `[ inserir imagens ]`
 
 ---
@@ -234,7 +234,7 @@ Passo a passo:
 
 ## Passo 17 — Reinício da simulação
 
-**Inserir a imagem  da captura da tela da simulção com o robô com presença dos objetos (`Captura da tela da simulação com a presença dos objetos`):**
+**Inserir a captura de tela da simulação, mostrando o robô e os objetos presentes no ambiente (`Captura da tela da simulação com a presença dos objetos`):**
 `[ inserir imagens ]`
 
 ---

@@ -11,7 +11,7 @@
 Para inserir uma imagem neste arquivo, use a seguinte sintaxe:
 
 ```markdown
-!caminho/da/imagem.png
+![texto alternativo](caminho/da/imagem.png)
 ```
 
 Passo a passo:
@@ -33,8 +33,12 @@ Passo a passo:
 **Explique o comportamento do controlador durante a convergência:**
 `[ ... ]`
 
-**Insira  as imagens dos 4 gráficos presentes em  `~/kuka_control_plots/`:**
-`[ inserir imagens ]`
+**Insira as imagens dos gráficos presentes em `~/kuka_control_plots/`:**
+
+- `~/kuka_control_plots/ctrl_joints_pd_sem_g.png`
+- `~/kuka_control_plots/ctrl_error_torque_pd_sem_g.png`
+- `~/kuka_control_plots/ctrl_tcp3d_pd_sem_g.png`
+- `~/kuka_control_plots/ctrl_phase_pd_sem_g.png`
 
 ---
 
@@ -46,8 +50,12 @@ Passo a passo:
 **Explique o impacto da compensação de gravidade no erro e no torque aplicado:**
 `[ ... ]`
 
-**Insira  as imagens dos 4 gráficos presentes em  `~/kuka_control_plots/`:**
-`[ inserir imagens ]`
+**Insira as imagens dos gráficos presentes em `~/kuka_control_plots/`:**
+
+- `~/kuka_control_plots/ctrl_joints_pd_com_g.png`
+- `~/kuka_control_plots/ctrl_error_torque_pd_com_g.png`
+- `~/kuka_control_plots/ctrl_tcp3d_pd_com_g.png`
+- `~/kuka_control_plots/ctrl_phase_pd_com_g.png`
 
 
 ---
@@ -71,8 +79,16 @@ Passo a passo:
 **Compare o desempenho entre as duas posturas:**
 `[ ... ]`
 
-**Insira  as imagens dos 4? gráficos presentes em  `~/kuka_control_plots/`?:**
-`[ inserir imagens ]`
+**Insira as imagens dos gráficos presentes em `~/kuka_control_plots/`:**
+
+- `~/kuka_control_plots/ctrl_joints_pdg_pick.png`
+- `~/kuka_control_plots/ctrl_error_torque_pdg_pick.png`
+- `~/kuka_control_plots/ctrl_tcp3d_pdg_pick.png`
+- `~/kuka_control_plots/ctrl_phase_pdg_pick.png`
+- `~/kuka_control_plots/ctrl_joints_pdg_stretch.png`
+- `~/kuka_control_plots/ctrl_error_torque_pdg_stretch.png`
+- `~/kuka_control_plots/ctrl_tcp3d_pdg_stretch.png`
+- `~/kuka_control_plots/ctrl_phase_pdg_stretch.png`
 
 ---
 
@@ -84,10 +100,12 @@ Passo a passo:
 **Explique o desempenho do controlador utilizando o modelo dinâmico completo:**
 `[ ... ]`
 
-**Insira  as imagens dos 4? gráficos presentes em  `~/kuka_control_plots/`?:**
-`[ inserir imagens ]`
+**Insira as imagens dos gráficos presentes em `~/kuka_control_plots/`:**
 
-
+- `~/kuka_control_plots/ctrl_joints_ct.png`
+- `~/kuka_control_plots/ctrl_error_torque_ct.png`
+- `~/kuka_control_plots/ctrl_tcp3d_ct.png`
+- `~/kuka_control_plots/ctrl_phase_ct.png`
 ---
 
 ## Passo 7 — Torque computado em posturas diferentes
@@ -106,8 +124,16 @@ Passo a passo:
 **Compare com as diferenças observadas no Passo 5:**
 `[ ... ]`
 
-**Insira  as imagens dos 4? gráficos presentes em  `~/kuka_control_plots/`?:**
-`[ inserir imagens ]`
+**Insira as imagens dos gráficos presentes em `~/kuka_control_plots/`:**
+
+- `~/kuka_control_plots/ctrl_joints_ct_pick.png`
+- `~/kuka_control_plots/ctrl_error_torque_ct_pick.png`
+- `~/kuka_control_plots/ctrl_tcp3d_ct_pick.png`
+- `~/kuka_control_plots/ctrl_phase_ct_pick.png`
+- `~/kuka_control_plots/ctrl_joints_ct_stretch.png`
+- `~/kuka_control_plots/ctrl_error_torque_ct_stretch.png`
+- `~/kuka_control_plots/ctrl_tcp3d_ct_stretch.png`
+- `~/kuka_control_plots/ctrl_phase_ct_stretch.png`
 
 ---
 
@@ -119,8 +145,13 @@ Passo a passo:
 **Explique os resultados obtidos:**
 `[ ... ]`
 
-**Insira  as imagens dos 4? gráficos presentes em  `~/kuka_control_plots/`?:**
-`[ inserir imagens ]`
+
+**Insira as imagens dos gráficos presentes em `~/kuka_control_plots/`:**
+
+- `~/kuka_control_plots/ctrl_joints_os_nominal.png`
+- `~/kuka_control_plots/ctrl_error_torque_os_nominal.png`
+- `~/kuka_control_plots/ctrl_tcp3d_os_nominal.png`
+- `~/kuka_control_plots/ctrl_phase_os_nominal.png`*
 
 ---
 
@@ -133,16 +164,28 @@ Passo a passo:
 `[ ... ]`
 
 
-**Insira  as imagens dos 4? gráficos presentes em  `~/kuka_control_plots/`?:**
-`[ inserir imagens ]``
+**Insira as imagens dos gráficos presentes em `~/kuka_control_plots/`:**
+
+- `~/kuka_control_plots/ctrl_joints_os_nominal.png`
+- `~/kuka_control_plots/ctrl_joints_os_sem_postura.png`
+- `~/kuka_control_plots/ctrl_tcp3d_os_nominal.png`
+- `~/kuka_control_plots/ctrl_tcp3d_os_sem_postura.png`
 
 
 ---
 
 ## Passo 10 — Comparação das três estratégias em condição de igualdade
 
-**Compartilhe a tabela gerada:**
+**Compartilhe os dados presente na tabela:**
 `[ ... ]`
+
+### Tabela: Desempenho das estratégias local, centralizada e de espaço operacional sob a mesma sintonia `(wn, zeta)`, sem perturbações (`cmp_table_igualdade.txt`)
+
+| Estratégia | RMS TCP [mm] | Pico TCP [mm] | Regime TCP [mm] | RMS junta [rad] | Assent. [s] | Sobressin. [%] | RMS τ [N·m] | Estável |
+|---|---|---|---|---|---|---|---|---|
+| Local (PD por junta) | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] |
+| Centralizado (torque computado) | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] |
+| Espaço operacional | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] |
 
 **Compare os resultados apresentados na tabela:**
 `[ ... ]`
@@ -151,8 +194,16 @@ Passo a passo:
 
 ## Passo 11 — Comparação com payload não modelada
 
-**Compartilhe a tabela gerada:**
+**Compartilhe os dados presente na tabela:**
 `[ ... ]`
+
+### Tabel: Desempenho das três estratégias com payload no flange não incluída no modelo do controlador (`cmp_table_payload.txt`)
+
+| Estratégia | RMS TCP [mm] | Pico TCP [mm] | Regime TCP [mm] | RMS junta [rad] | Assent. [s] | Sobressin. [%] | RMS τ [N·m] | Estável |
+|---|---|---|---|---|---|---|---|---|
+| Local (PD por junta) | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] |
+| Centralizado (torque computado) | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] |
+| Espaço operacional | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] |
 
 **Compare os resultados com os obtidos no Passo 10:**
 `[ ... ]`
@@ -162,9 +213,16 @@ Passo a passo:
 
 ## Passo 12 — Comparação com atrito de Coulomb não modelado
 
-**Compartilhe a tabela gerada:**
+**Compartilhe os dados presente na tabela:**
 `[ ... ]`
 
+### Tabela: Desempenho das três estratégias com atrito de Coulomb nas juntas não incluído no modelo do controlador (`cmp_table_atrito.txt`)
+
+| Estratégia | RMS TCP [mm] | Pico TCP [mm] | Regime TCP [mm] | RMS junta [rad] | Assent. [s] | Sobressin. [%] | RMS τ [N·m] | Estável |
+|---|---|---|---|---|---|---|---|---|
+| Local (PD por junta) | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] |
+| Centralizado (torque computado) | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] |
+| Espaço operacional | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] |
 **Compare a coluna "regime TCP" com os resultados do Passo 10:**
 `[ ... ]`
 
@@ -177,9 +235,7 @@ Passo a passo:
 **Confirme a inicialização do robô e dos controladores:**
 `[ ... ]`
 
-**Inserir a imagem  da captura da tela da simulção com o robô (`Captura da tela da simulação`):**
-`[ inserir imagens ]`
-
+**Inserir a imagem da captura de tela da simulação com o robô (`Captura da tela da simulação`):**
 ---
 
 ## Passo 14 — Desempenho do controlador no Gazebo
@@ -190,9 +246,11 @@ Passo a passo:
 **Compare o resultado com os valores obtidos no Passo 10:**
 `[ ... ]`
 
-**Inserir a imagem dos gráficos, e o JSON gerado:**
-`[ inserir imagens/arquivo ]`
+**Insira as imagens dos gráficos presentes em `~/kuka_control_plots/`:**
 
+- `~/kuka_control_plots/jtc_joints_jtc_pick.png`
+- `~/kuka_control_plots/jtc_error_jtc_pick.png`
+- JSON: `~/kuka_control_plots/jtc_metrics_jtc_pick.json`
 
 ---
 
@@ -229,14 +287,26 @@ Passo a passo:
 **Figuras:**
 `[ inserir imagens ]`
 
+**Insira as imagens dos gráficos presentes em `~/kuka_control_plots/`:**
+
+- `~/kuka_control_plots/jtc_joints_jtc_poucos_wp.png`
+- `~/kuka_control_plots/jtc_error_jtc_poucos_wp.png`
 ---
 
 ## Passo 17 — Confronto entre números do Gazebo e da simulação
 
-**Compartilhe a tabela comparativa:**
+**Compartilhe os dados da tabela comparativa:**
 `[ ... ]`
+### Tabela: Erro de rastreamento do TCP nas três estratégias simuladas e no `JointTrajectoryController` real do Gazebo, na mesma trajetória home → pick
 
-**(PD local simulado, torque computado simulado, espaço operacional simulado e JTC do Gazebo)**
+Valores das linhas simuladas: `cmp_table_igualdade.txt` (Passo 10). Valores da linha do Gazebo: `jtc_metrics_jtc_pick.json` (Passo 14).
+
+| Controlador | Origem | RMS TCP [mm] | Pico TCP [mm] | Regime TCP [mm] | RMS junta [rad] |
+|---|---|---|---|---|---|
+| PD local (PD por junta) | Simulação | [ ... ] | [ ... ] | [ ... ] | [ ... ] |
+| Torque computado (centralizado) | Simulação | [ ... ] | [ ... ] | [ ... ] | [ ... ] |
+| Espaço operacional | Simulação | [ ... ] | [ ... ] | [ ... ] | [ ... ] |
+| JTC do Gazebo | Robô simulado no Gazebo | [ ... ] | [ ... ] | [ ... ] | [ ... ] |
 
 **Registre a conclusão sobre qual estratégia mais se aproxima do controlador real:**
 `[ ... ]`
@@ -251,9 +321,10 @@ Passo a passo:
 **Explique o impacto do ruído sobre o termo derivativo:**
 `[ ... ]`
 
-**Figuras:**
-`[ inserir imagens ]`
+**Insira as imagens dos gráficos presentes em `~/kuka_control_plots/`:**
 
+- `~/kuka_control_plots/ctrl_error_torque_ruido_leve.png`
+- `~/kuka_control_plots/ctrl_error_torque_ruido_forte.png`
 
 ---
 
@@ -300,8 +371,9 @@ Passo a passo:
 **Explique os dados presente no painel central de `force_run_pos_madeira.png`:**
 `[ ... ]`
 
-**Figura:**
-`[ inserir imagem ]`
+**Insira as imagens dos gráficos presentes em `~/kuka_control_plots/`:**
+
+- `~/kuka_control_plots/force_run_pos_madeira.png`
 
 
 ---
@@ -322,9 +394,11 @@ Passo a passo:
 **Compare os resultados entre os três materiais:**
 `[ ... ]`
 
-**Figuras:**
-`[ inserir imagens ]`
+**Insira as imagens dos gráficos presentes em `~/kuka_control_plots/`:**
 
+- `~/kuka_control_plots/force_run_pos_espuma.png`
+- `~/kuka_control_plots/force_run_pos_madeira.png`
+- `~/kuka_control_plots/force_run_pos_aco.png`
 
 ---
 
@@ -341,21 +415,36 @@ Passo a passo:
 **Explique o desempenho do controlador híbrido:**
 `[ ... ]`
 
-**Figuras:**
-`[ inserir imagens ]`
+**Insira as imagens dos gráficos presentes em `~/kuka_control_plots/`:**
 
+- `~/kuka_control_plots/force_run_hibrido_madeira.png`
+- `~/kuka_control_plots/force_torque_hibrido_madeira.png`
 ---
 
 ## Passo 25 — Comparação das quatro leis de interação
 
-**Registre a tabela gerada (pico, regime, erro, ondulação, penetração e torque de pico):**
+**Registre os dados tabela que foi gerada:**
 `[ ... ]`
+
+### Tabela: Contato com a madeira: posição pura, impedância, admitância e híbrido força/posição, com o mesmo comando abaixo da superfície e `F_des` = 20 N (`fcmp_table_madeira.txt`)
+
+| Lei de interação | Pico [N] | Regime [N] | Erro [N] | Ondul. [N] | Penetr. [mm] | τ pico [N·m] |
+|---|---|---|---|---|---|---|
+| Posição pura | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] |
+| Impedância | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] |
+| Admitância | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] |
+| Híbrido força/posição | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] |
 
 **Compare os resultados entre as estratégias avaliadas:**
 `[ ... ]`
 
-**Figura (`fcmp_force_log_madeira.png`) e demais gráficos:**
-`[ inserir imagens ]`
+**Insira as imagens dos gráficos presentes em `~/kuka_control_plots/`:**
+
+- `~/kuka_control_plots/fcmp_force_log_madeira.png`
+- `~/kuka_control_plots/fcmp_force_madeira.png`
+- `~/kuka_control_plots/fcmp_height_madeira.png`
+- `~/kuka_control_plots/fcmp_summary_madeira.png`
+
 
 ---
 
@@ -363,6 +452,35 @@ Passo a passo:
 
 **Registre as tabelas dos três materiais (espuma, madeira e aço):**
 `[ ... ]`
+
+
+### Tabela:  Contato com espuma (baixa rigidez): comparação das quatro leis de interação (`fcmp_table_espuma.txt`)
+
+| Lei de interação | Pico [N] | Regime [N] | Erro [N] | Ondul. [N] | Penetr. [mm] | τ pico [N·m] |
+|---|---|---|---|---|---|---|
+| Posição pura | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] |
+| Impedância | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] |
+| Admitância | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] |
+| Híbrido força/posição | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] |
+
+### Tabela: Contato com madeira (rigidez intermediária): comparação das quatro leis de interação (`fcmp_table_madeira.txt`)
+
+| Lei de interação | Pico [N] | Regime [N] | Erro [N] | Ondul. [N] | Penetr. [mm] | τ pico [N·m] |
+|---|---|---|---|---|---|---|
+| Posição pura | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] |
+| Impedância | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] |
+| Admitância | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] |
+| Híbrido força/posição | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] |
+
+### Tabela: Contato com aço (alta rigidez): comparação das quatro leis de interação (`fcmp_table_aco.txt`)
+
+| Lei de interação | Pico [N] | Regime [N] | Erro [N] | Ondul. [N] | Penetr. [mm] | τ pico [N·m] |
+|---|---|---|---|---|---|---|
+| Posição pura | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] |
+| Impedância | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] |
+| Admitância | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] |
+| Híbrido força/posição | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] | [ ... ] |
+
 
 **Explique quais métricas foram mais sensíveis à mudança de material:**
 `[ ... ]`
