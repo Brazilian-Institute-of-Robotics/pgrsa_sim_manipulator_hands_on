@@ -17,11 +17,26 @@ Para inserir uma imagem neste arquivo, use a seguinte sintaxe:
 Passo a passo:
 
 1. Copie o arquivo de imagem gerado (por exemplo, em `~/kuka_control_plots/`) para uma pasta do seu repositório, como `imagens/`, para que ela fique versionada junto com o projeto.
-2. Escreva o caminho relativo até a imagem, conforme o exemplo a seguir:
-3. Indique, entre parênteses ( ), o caminho até o local correto do arquivo em relação a este .md.
+2. Escreva o caminho relativo até a imagem, conforme o exemplo a seguir.
+
+
+Suponha que o arquivo de imagem `erro_cartesiano.png` tenha sido armazenado na pasta `imagens/` do repositório. Para inseri-lo neste relatório, utilize:
+
+```markdown
+imagens/erro_cartesiano.png
+```
+
+Outro exemplo:
+
+```markdown
+imagens/torque_juntas.png
+```
+
+3. Indique, entre parênteses `( )`, o caminho até o local correto do arquivo em relação a este arquivo `.md`.
 4. Salve o arquivo e visualize no GitHub (ou em um editor com preview de Markdown, como VS Code) para confirmar que a imagem aparece corretamente.
-5
 5. Execute os comandos `git add`, `git commit` e `git push` para incluir as imagens no controle de versão e enviá-las ao repositório remoto.
+
+---
 
 ---
 
