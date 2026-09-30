@@ -230,7 +230,7 @@ Passo a passo:
 
 ---
 
-## Passo 13 — Subida do ambiente no Gazebo
+## Passo 13 — Execução no ambiente Gazebo
 
 **Confirme a inicialização do robô e dos controladores:**
 `[ ... ]`
@@ -293,7 +293,7 @@ Passo a passo:
 - `~/kuka_control_plots/jtc_error_jtc_poucos_wp.png`
 ---
 
-## Passo 17 — Confronto entre números do Gazebo e da simulação
+## Passo 17 — Comparação dos erros de rastreamento
 
 **Compartilhe os dados da tabela comparativa:**
 `[ ... ]`
@@ -448,7 +448,7 @@ Valores das linhas simuladas: `cmp_table_igualdade.txt` (Passo 10). Valores da l
 
 ---
 
-## Passo 26 — Comparação nos três materiais
+## Passo 26 — Comparação entre os três materiais: 
 
 **Registre as tabelas dos três materiais (espuma, madeira e aço):**
 `[ ... ]`

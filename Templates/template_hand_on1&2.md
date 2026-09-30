@@ -29,7 +29,7 @@ Passo a passo:
 **Confirme a inicialização do robô e do gripper Robotiq 2F-85 na simulação:**
 `[ ... ]`
 
-**Inserir uma captura de tela da simulação, na qual o robô esteja visível (`Captura da tela da simulação`):**
+**Insira uma captura de tela da simulação, na qual o robô esteja visível (`Captura da tela da simulação`):**
 `[ inserir imagens ]`
 
 ---
@@ -49,7 +49,7 @@ Passo a passo:
 **Confirme os elementos carregados na simulação (mesa, objetos manipuláveis e caixa de destino):**
 `[ ... ]`
 
-**Inserir a captura de tela da simulação, mostrando o robô e os objetos presentes no ambiente (`Captura da tela da simulação com a presença dos objetos`):**
+**Insira a captura de tela da simulação, mostrando o robô e os objetos presentes no ambiente (`Captura da tela da simulação com a presença dos objetos`):**
 `[ inserir imagens ]`
 
 ---
@@ -102,7 +102,7 @@ Passo a passo:
 
 ## Passo 8 — Reinício da simulação
 
-**Inserir a captura de tela da simulação, mostrando o robô e os objetos presentes no ambiente (`Captura da tela da simulação com a presença dos objetos`):**
+**Insira a captura de tela da simulação, mostrando o robô e os objetos presentes no ambiente (`Captura da tela da simulação com a presença dos objetos`):**
 `[ inserir imagens ]`
 
 ---
@@ -151,7 +151,7 @@ Passo a passo:
 **Explique se o filtro conseguiu estimar corretamente os estados do manipulador:**
 `[ ... ]`
 
-**Insira as 8 imagem de gráficos presente em `~/kuka_kf_plots/`:**
+**Insira as 8 imagens de gráficos presente em `~/kuka_kf_plots/`:**
 `[ inserir imagens ]`
 
 ---
@@ -164,7 +164,7 @@ Passo a passo:
 **Explique o impacto do ruído e dos outliers sobre a estimativa de movimento:**
 `[ ... ]`
 
-**Insira as 8 imagem de gráficos presente em `~/kuka_kf_plots/`:**
+**Insira as 8 imagens de gráficos presente em `~/kuka_kf_plots/`:**
 `[ inserir imagens ]`
 
 ---
@@ -177,7 +177,7 @@ Passo a passo:
 **Compare os resultados com os obtidos nos Passos 10 e 11:**
 `[ ... ]`
 
-**Insira as 8 imagem de gráficos presente em `~/kuka_kf_plots/`**
+**Insira as 8 imagens de gráficos presente em `~/kuka_kf_plots/`**
 `[ inserir imagens ]`
 
 ---
@@ -201,7 +201,7 @@ Passo a passo:
 **Compare os gráficos gerados com os dos Passos 10, 11 e 12:**
 `[ ... ]`
 
-**Insira as 8 imagem de gráficos presente em `~/kuka_kf_plots/`**
+**Insira as 8 imagens de gráficos presente em `~/kuka_kf_plots/`**
 
 ---
 
@@ -234,7 +234,7 @@ Passo a passo:
 
 ## Passo 17 — Reinício da simulação
 
-**Inserir a captura de tela da simulação, mostrando o robô e os objetos presentes no ambiente (`Captura da tela da simulação com a presença dos objetos`):**
+**Insira a captura de tela da simulação, mostrando o robô e os objetos presentes no ambiente (`Captura da tela da simulação com a presença dos objetos`):**
 `[ inserir imagens ]`
 
 ---
