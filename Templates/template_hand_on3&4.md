@@ -33,7 +33,7 @@ imagens/torque_juntas.png
 ```
 
 3. Indique, entre parênteses `( )`, o caminho até o local correto do arquivo em relação a este arquivo `.md`.
-4. Salve o arquivo e visualize no GitHub (ou em um editor com preview de Markdown, como VS Code) para confirmar que a imagem aparece corretamente.
+4. Salve o arquivo e visualize no GitHub (ou em um editor com _preview_ de Markdown, como VS Code) para confirmar que a imagem aparece corretamente.
 5. Execute os comandos `git add`, `git commit` e `git push` para incluir as imagens no controle de versão e enviá-las ao repositório remoto.
 
 ---
@@ -79,16 +79,16 @@ imagens/torque_juntas.png
 
 **Registre as métricas obtidas:**
 
-**RMS do erro do TCP (pick):**
+- **RMS do erro do TCP (pick):**
 `[ ... ]`
 
-**RMS do erro do TCP (stretch):**
+- **RMS do erro do TCP (stretch):**
 `[ ... ]`
 
-**Sobressinal (pick):**
+- **Sobressinal (pick):**
 `[ ... ]`
 
-**Sobressinal (stretch):**
+- **Sobressinal (stretch):**
 `[ ... ]`
 
 **Compare o desempenho entre as duas posturas:**
@@ -127,13 +127,13 @@ imagens/torque_juntas.png
 
 **Registre as métricas obtidas:**
 
-**RMS do erro do TCP (pick):**
+- **RMS do erro do TCP (pick):**
 `[ ... ]`
 
-**RMS do erro do TCP (stretch):**
+- **RMS do erro do TCP (stretch):**
 `[ ... ]`
 
-**Compara a diferença observada entre as duas execuções:**
+**Compare a diferença observada entre as duas execuções:**
 `[ ... ]`
 
 **Compare com as diferenças observadas no Passo 5:**
@@ -207,7 +207,7 @@ imagens/torque_juntas.png
 
 ---
 
-## Passo 11 — Comparação com payload não modelada
+## Passo 11 — Comparação com _payload_ não modelada
 
 **Compartilhe os dados presente na tabela:**
 `[ ... ]`
@@ -273,16 +273,16 @@ imagens/torque_juntas.png
 
 **Registre os valores observados:**
 
-**RMS do erro do TCP (pick):**
+- **RMS do erro do TCP (pick):**
 `[ ... ]`
 
-**RMS do erro do TCP (stretch):**
+- **RMS do erro do TCP (stretch):**
 `[ ... ]`
 
-**RMS do erro do TCP (left):**
+- **RMS do erro do TCP (left):**
 `[ ... ]`
 
-**Dispersão calculada ((máx − mín)/média):**
+- **Dispersão calculada ((máx − mín)/média):**
 `[ ... ]`
 
 **Compare com os experimentos simulados:**
@@ -291,9 +291,9 @@ imagens/torque_juntas.png
 
 ---
 
-## Passo 16 — Redução da densidade de waypoints
+## Passo 16 — Redução da densidade de _waypoints_
 
-**Explique o efeito da redução de waypoints sobre a trajetória:**
+**Explique o efeito da redução de _waypoints_ sobre a trajetória:**
 `[ ... ]`
 
 **Comente sobre a presença de erros ou degradação da referência:**
@@ -328,7 +328,7 @@ Valores das linhas simuladas: `cmp_table_igualdade.txt` (Passo 10). Valores da l
 
 ---
 
-## Passo 18 — Efeito do ruído de encoder sobre o ganho derivativo
+## Passo 18 — Efeito do ruído de _encoder_ sobre o ganho derivativo
 
 **Compare os gráficos `ctrl_error_torque_ruido_*.png`:**
 `[ ... ]`
@@ -357,13 +357,13 @@ Valores das linhas simuladas: `cmp_table_igualdade.txt` (Passo 10). Valores da l
 
 **Registre as métricas:**
 
-**Pico de erro observado:**
+- **Pico de erro observado:**
 `[ ... ]`
 
-**Fração de alta frequência:**
+- **Fração de alta frequência:**
 `[ ... ]`
 
-**Número de inversões:**
+- **Número de inversões:**
 `[ ... ]`
 
 **Explique os valores registrados:**
@@ -397,13 +397,13 @@ Valores das linhas simuladas: `cmp_table_igualdade.txt` (Passo 10). Valores da l
 
 **Registre as forças de regime observadas:**
 
-**Espuma:**
+- **Espuma:**
 `[ ... ]`
 
-**Madeira:**
+- **Madeira:**
 `[ ... ]`
 
-**Aço:**
+- **Aço:**
 `[ ... ]`
 
 **Compare os resultados entre os três materiais:**
@@ -421,10 +421,10 @@ Valores das linhas simuladas: `cmp_table_igualdade.txt` (Passo 10). Valores da l
 
 **Registre as métricas:**
 
-**Força de regime observada:**
+- **Força de regime observada:**
 `[ ... ]`
 
-**Ondulação observada:**
+- **Ondulação observada:**
 `[ ... ]`
 
 **Explique o desempenho do controlador híbrido:**

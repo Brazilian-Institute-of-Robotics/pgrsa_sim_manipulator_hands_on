@@ -33,7 +33,7 @@ imagens/torque_juntas.png
 ```
 
 3. Indique, entre parênteses `( )`, o caminho até o local correto do arquivo em relação a este arquivo `.md`.
-4. Salve o arquivo e visualize no GitHub (ou em um editor com preview de Markdown, como VS Code) para confirmar que a imagem aparece corretamente.
+4. Salve o arquivo e visualize no GitHub (ou em um editor com _preview_ de Markdown, como VS Code) para confirmar que a imagem aparece corretamente.
 5. Execute os comandos `git add`, `git commit` e `git push` para incluir as imagens no controle de versão e enviá-las ao repositório remoto.
 
 
@@ -67,32 +67,32 @@ imagens/torque_juntas.png
 
 ---
 
-## Passo 6 — Execução das 8 tarefas de pick-and-place
+## Passo 6 — Execução das 8 tarefas de _pick-and-place_
 
 **Registre o resultado de cada uma das 8 tarefas (sucesso ou falha na coleta, no transporte e na deposição):**
 
-**`red_box`:**
+- **`red_box`:**
 `[ ... ]`
 
-**`blue_cylinder`:**
+- **`blue_cylinder`:**
 `[ ... ]`
 
-**`green_sphere`:**
+- **`green_sphere`:**
 `[ ... ]`
 
-**`yellow_bottle`:**
+- **`yellow_bottle`:**
 `[ ... ]`
 
-**`orange_can`:**
+- **`orange_can`:**
 `[ ... ]`
 
-**`pink_cube`:**
+- **`pink_cube`:**
 `[ ... ]`
 
-**`gray_puck`:**
+- **`gray_puck`:**
 `[ ... ]`
 
-**`teal_block`:**
+- **`teal_block`:**
 `[ ... ]`
 
 **Insira as observações gerais sobre o comportamento do manipulador durante as tarefas:**
@@ -124,28 +124,28 @@ imagens/torque_juntas.png
 
 **Registre o erro de rastreamento observado para cada uma das 8 manipulações:**
 
-**`red_box`:**
+- **`red_box`:**
 `[ ... ]`
 
-**`blue_cylinder`:**
+- **`blue_cylinder`:**
 `[ ... ]`
 
-**`green_sphere`:**
+- **`green_sphere`:**
 `[ ... ]`
 
-**`yellow_bottle`:**
+ - **`yellow_bottle`:**
 `[ ... ]`
 
-**`orange_can`:**
+- **`orange_can`:**
 `[ ... ]`
 
-**`pink_cube`:**
+- **`pink_cube`:**
 `[ ... ]`
 
-**`gray_puck`:**
+- **`gray_puck`:**
 `[ ... ]`
 
-**`teal_block`:**
+- **`teal_block`:**
 `[ ... ]`
 
 **Compare os valores do erro de rastreamento entre as 8 tarefas monitoradas:**
@@ -156,7 +156,7 @@ imagens/torque_juntas.png
 
 ---
 
-## Passo 10 — Estimação de estado offline (linha de base)
+## Passo 10 — Estimação de estado _offline_ (linha de base)
 
 **Registre os resultados obtidos com o filtro de Kalman sob ruído gaussiano reprodutível:**
 `[ ... ]`
@@ -169,7 +169,7 @@ imagens/torque_juntas.png
 
 ---
 
-## Passo 11 — Estimação offline com ruído elevado e outliers
+## Passo 11 — Estimação _offline_ com ruído elevado e outliers
 
 **Registre os resultados obtidos (`sigma_pos:=0.02`, `outlier_prob:=0.02`):**
 `[ ... ]`
@@ -182,7 +182,7 @@ imagens/torque_juntas.png
 
 ---
 
-## Passo 12 — Estimação offline com viés constante
+## Passo 12 — Estimação _offline_ com viés constante
 
 **Registre os resultados obtidos (`bias:=0.02`):**
 `[ ... ]`
@@ -195,21 +195,21 @@ imagens/torque_juntas.png
 
 ---
 
-## Passo 13 — Pipeline completo de estimação online
+## Passo 13 — _Pipeline_ completo de estimação _online_
 
 **Confirme a inicialização simultânea dos três nós (`noise_injector`, `state_estimator` e `estimation_plotter`):**
 `[ ... ]`
 
 ---
 
-## Passo 14 — Movimentação do robô durante a estimação online
+## Passo 14 — Movimentação do robô durante a estimação _online_
 
-**Descreva o comportamento do pipeline de estimação online durante a execução do pick-and-place:**
+**Descreva o comportamento do _pipeline_ de estimação _online_ durante a execução do _pick-and-place_:**
 `[ ... ]`
 
 ---
 
-## Passo 15 — Encerramento do pipeline online e análise dos resultados
+## Passo 15 — Encerramento do _pipeline_ _online_ e análise dos resultados
 
 **Compare os gráficos gerados com os dos Passos 10, 11 e 12:**
 `[ ... ]`
@@ -218,26 +218,26 @@ imagens/torque_juntas.png
 
 ---
 
-## Passo 16 — Monitoramento do esforço (effort) por junta
+## Passo 16 — Monitoramento do esforço (_effort_) por junta
 
 **Registre os valores máximos de `effort` observados em cada junta durante a tarefa `red_box`:**
 
-**Junta 1:**
+- **Junta 1:**
 `[ ... ]`
 
-**Junta 2:**
+- **Junta 2:**
 `[ ... ]`
 
-**Junta 3:**
+- **Junta 3:**
 `[ ... ]`
 
-**Junta 4:**
+- **Junta 4:**
 `[ ... ]`
 
-**Junta 5:**
+- **Junta 5:**
 `[ ... ]`
 
-**Junta 6:**
+- **Junta 6:**
 `[ ... ]`
 
 **Explique como o torque varia entre as juntas ao longo da tarefa:**
@@ -256,22 +256,22 @@ imagens/torque_juntas.png
 
 **Registre os valores de pico de `effort` observados em cada junta durante a tarefa `orange_can`:**
 
-**Junta 1:**
+- **Junta 1:**
 `[ ... ]`
 
-**Junta 2:**
+- **Junta 2:**
 `[ ... ]`
 
-**Junta 3:**
+- **Junta 3:**
 `[ ... ]`
 
-**Junta 4:**
+- **Junta 4:**
 `[ ... ]`
 
-**Junta 5:**
+- **Junta 5:**
 `[ ... ]`
 
-**Junta 6:**
+- **Junta 6:**
 `[ ... ]`
 
 **Compare os valores obtidos com os registrados no Passo 16:**
